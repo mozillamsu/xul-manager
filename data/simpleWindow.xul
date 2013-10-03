@@ -1,0 +1,21 @@
+<window
+    id="findfile-window"
+    title="Find Files"
+    orient="horizontal"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!-- Other elements go here --> 
+
+</window>
+
+<toolbaritem 
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+    id="widget:jid1-wo2GYk9AYmfzbA@jetpack-music-player" 
+    label="Music Player" 
+    tooltiptext="Music Player" 
+    align="center" 
+    context="" 
+    style="overflow: hidden; margin: 1px 2px; padding: 0px; min-height: 16px; min-width: 16px;" 
+    removable="true">
+
+    <button lable="Merp derp" />
+</toolbaritem>
