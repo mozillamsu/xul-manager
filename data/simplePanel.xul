@@ -1,7 +1,6 @@
 <panel id="foo-search-panel">
-    <label control="name" value="Name:" id="foo-label" />
+    <label id="foo-label" control="name" value="Name:"  />
     <button id="foo-button">dooood</button>
     <textbox id="name"/>
     <button id="okbutton" label="OK"/>
-
 </panel>

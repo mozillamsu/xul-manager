@@ -1,10 +1,4 @@
 {
     "shell": true,
-    "cmd": [
-        "cd ~/Tools/addon-sdk;
-        source bin/activate;
-        cd $file_path;
-        cd ../;
-        cfx --binary=/Applications/FirefoxUX.app/Contents/MacOS/firefox run"
-    ]
+    "cmd": ["cd ~/Tools/addon-sdk; source bin/activate; cd $file_path; cd ../; cfx --binary=/Applications/FirefoxUX.app/Contents/MacOS/firefox run"]
 }
