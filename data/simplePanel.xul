@@ -3,4 +3,5 @@
     <button id="foo-button">dooood</button>
     <textbox id="name"/>
     <button id="okbutton" label="OK"/>
+    <div class="bind-var" id="foo-bind-string">asdf</div>
 </panel>
