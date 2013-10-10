@@ -1,5 +1,16 @@
-self.port.on("play", function (arg) {
-    var myplayer = document.getElementById("sound-player");
+var audio = document.getElementById('sound-player');
 
-    myplayer.play();
+audio.addEventListener('timeupdate', function() {
+    self.port.emit('time-update',  {
+        currentTime: audio.currentTime,
+        duration: audio.duration
+    });
+});
+
+self.port.on('play', function (args) {
+    audio.play();
+});
+
+self.port.on('pause', function (args) {
+    audio.pause();
 });
