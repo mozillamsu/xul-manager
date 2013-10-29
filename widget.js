@@ -1,47 +1,57 @@
 var WindowManager = require('./window-manager').WindowManager;
 
+/**
+ * Class for defining a widget and its behavior.
+ *
+ * @constructor
+ * @param {Object} CONFIG Widget configuration object.
+ */
 function Widget(CONFIG) {
-    let windowManager = new WindowManager(CONFIG);
-    let document = windowManager.getXULDocument();
+    let windowManager = new WindowManager(CONFIG); // Class to ma
+    let document = windowManager.getXULDocument(); // document object
 
-    let counter = 0;
-    let btn = document.getElementById('msu-foo-btn-counter');
-    let lbl = document.getElementById('msu-foo-lbl-count');
-
-    btn.addEventListener('command', function(event) {
-        counter++;
-        console.log('clicked: ' + counter);
-        lbl.setAttribute('value', counter);
-    });
-
+    /**
+     * Handler for the node creation event.
+     *
+     * Adds the widget to new windows.
+     *
+     * @param {Object} node The new window node into which the widget must be inserted.
+     */
     function onCreated(node) {
-        console.log('oncreated called');
 
+        // Get the document from the node's parent
         let doc = node.ownerDocument;
-        // Curren't doesn't take image size into account.
+
+        // Create the widget icon
         let img = doc.createElement('image');
         img.setAttribute('class', 'toolbarbutton-icon');
         img.setAttribute('src', CONFIG.ICON_URL);
 
+        // Create the widget label
         let lbl = doc.createElement('label');
         lbl.setAttribute('class', 'toolbarbutton-text toolbarbutton-label');
         lbl.setAttribute('flex', '1');
-        lbl.setAttribute('value', 'Foo Widget');
+        lbl.setAttribute('value', CONFIG.LABEL);
 
+        // Insert 
         node.appendChild(img);
         node.appendChild(lbl);
     }
 
     function onViewShowing(event) {
-        console.log('onViewShowing called for widget');
     }
 
     function onViewHiding(event) {
-        console.log('onViewHiding called for widget');
     }
 
+    /**
+     * Handler for the browser unload event.
+     *
+     * Removes the widget from all windows.
+     * 
+     * @param  {Object} eventArgs Event arguments object.
+     */
     function addonUnload(eventArgs) {
-        console.log('Unloading: ' + eventArgs);
         windowManager.removeInjections();
         windowManager = null;
     }
