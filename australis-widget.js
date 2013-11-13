@@ -96,7 +96,6 @@ function AustralisWidget (widget) {
      * Handler for the widget hiding event.
      */
     customizableWidget.onViewHiding = function () {
-        console.log("onViewHiding");
     };
 
     CustomizableUI.createWidget(customizableWidget);
